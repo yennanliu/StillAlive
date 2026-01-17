@@ -63,7 +63,6 @@ dependencies:
   table_calendar: ^3.0.9
 
   # Optional
-  flutter_native_timezone: ^2.0.0
   device_info_plus: ^10.1.0
 
 dev_dependencies:
