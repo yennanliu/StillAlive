@@ -1,5 +1,11 @@
 # StillAlive
 
+## prerequisite
+
+- Install android studio
+	- Install `Flutter` plugin
+
+- Install Flutter CLI
 
 
 ## Ref
