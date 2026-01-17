@@ -7,6 +7,11 @@
 
 - Install Flutter CLI
 
+## Conf
+
+- Android Studio project conf
+<p align="center"><img src ="./doc/pic/android_conf.png"></p>
+
 
 ## Ref
 
