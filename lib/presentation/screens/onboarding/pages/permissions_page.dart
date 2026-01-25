@@ -20,11 +20,24 @@ class _PermissionsPageState extends State<PermissionsPage> {
   PermissionStatus _phoneStatus = PermissionStatus.denied;
   PermissionStatus _notificationStatus = PermissionStatus.denied;
   bool _isLoading = false;
+  bool _hasRequestedOnce = false;
 
   @override
   void initState() {
     super.initState();
-    _checkPermissions();
+    _checkAndRequestPermissions();
+  }
+
+  Future<void> _checkAndRequestPermissions() async {
+    await _checkPermissions();
+
+    // Auto-request permissions on first load
+    if (!_hasRequestedOnce) {
+      _hasRequestedOnce = true;
+      // Small delay to let UI settle
+      await Future.delayed(const Duration(milliseconds: 500));
+      await _requestAllPermissions();
+    }
   }
 
   Future<void> _checkPermissions() async {
@@ -32,11 +45,13 @@ class _PermissionsPageState extends State<PermissionsPage> {
     final phoneStatus = await Permission.phone.status;
     final notificationStatus = await Permission.notification.status;
 
-    setState(() {
-      _smsStatus = smsStatus;
-      _phoneStatus = phoneStatus;
-      _notificationStatus = notificationStatus;
-    });
+    if (mounted) {
+      setState(() {
+        _smsStatus = smsStatus;
+        _phoneStatus = phoneStatus;
+        _notificationStatus = notificationStatus;
+      });
+    }
   }
 
   Future<void> _requestAllPermissions() async {
@@ -44,9 +59,16 @@ class _PermissionsPageState extends State<PermissionsPage> {
       _isLoading = true;
     });
 
-    await Permission.sms.request();
-    await Permission.phone.request();
-    await Permission.notification.request();
+    // Request only denied permissions
+    if (!_smsStatus.isGranted) {
+      await Permission.sms.request();
+    }
+    if (!_phoneStatus.isGranted) {
+      await Permission.phone.request();
+    }
+    if (!_notificationStatus.isGranted) {
+      await Permission.notification.request();
+    }
 
     await _checkPermissions();
 
