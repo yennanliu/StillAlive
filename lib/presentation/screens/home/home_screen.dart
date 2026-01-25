@@ -134,7 +134,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final homeState = ref.watch(homeNotifierProvider);
-    final checkinState = ref.watch(checkinNotifierProvider);
     final settings = ref.watch(settingsNotifierProvider);
 
     return Scaffold(
