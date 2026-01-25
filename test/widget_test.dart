@@ -11,14 +11,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:still_alive/main.dart';
 
 void main() {
-  testWidgets('App launches smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App launches and shows onboarding', (WidgetTester tester) async {
+    // Build our app and trigger a frame
     await tester.pumpWidget(const ProviderScope(child: StillAliveApp()));
+    await tester.pumpAndSettle();
 
-    // Verify that the app title is displayed
-    expect(find.text('Still Alive'), findsWidgets);
-
-    // Verify Phase 1 completion message
-    expect(find.text('Phase 1: Foundation Complete ✓'), findsOneWidget);
+    // Verify that the onboarding welcome page is displayed
+    expect(find.text('Get Started'), findsOneWidget);
+    expect(find.text('Daily check-ins to let your loved ones know you\'re okay'), findsOneWidget);
   });
 }
