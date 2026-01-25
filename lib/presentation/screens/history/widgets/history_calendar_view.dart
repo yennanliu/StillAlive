@@ -138,7 +138,10 @@ class _HistoryCalendarViewState extends State<HistoryCalendarView> {
             lastDay: widget.rangeEnd,
             focusedDay: _focusedDay,
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-            calendarFormat: CalendarFormat.month,
+            calendarFormat: CalendarFormat.twoWeeks,
+            availableGestures: AvailableGestures.horizontalSwipe,
+            daysOfWeekHeight: 24,
+            rowHeight: 34,
             onDaySelected: (selectedDay, focusedDay) {
               setState(() {
                 _selectedDay = selectedDay;
@@ -149,6 +152,15 @@ class _HistoryCalendarViewState extends State<HistoryCalendarView> {
             onPageChanged: (focusedDay) {
               _focusedDay = focusedDay;
             },
+            headerStyle: const HeaderStyle(
+              formatButtonVisible: false,
+              titleCentered: true,
+              leftChevronPadding: EdgeInsets.zero,
+              rightChevronPadding: EdgeInsets.zero,
+              titleTextStyle: TextStyle(fontSize: 15),
+              headerPadding: EdgeInsets.symmetric(vertical: 4),
+              headerMargin: EdgeInsets.only(bottom: 4),
+            ),
             calendarStyle: CalendarStyle(
               markersMaxCount: 0,
               cellMargin: const EdgeInsets.all(4),

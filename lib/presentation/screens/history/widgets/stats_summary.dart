@@ -21,25 +21,25 @@ class StatsSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Icon(Icons.analytics, color: AppTheme.primaryColor),
-                const SizedBox(width: 8),
+                Icon(Icons.analytics, color: AppTheme.primaryColor, size: 20),
+                const SizedBox(width: 6),
                 Text(
                   'Statistics',
-                  style: AppTheme.bodyLarge.copyWith(
+                  style: AppTheme.bodyMedium.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
@@ -64,7 +64,7 @@ class StatsSummary extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Expanded(
@@ -109,20 +109,21 @@ class _StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icon, color: color, size: 32),
-        const SizedBox(height: 8),
+        Icon(icon, color: color, size: 24),
+        const SizedBox(height: 4),
         Text(
           value,
-          style: AppTheme.headlineSmall.copyWith(
+          style: AppTheme.bodyLarge.copyWith(
             color: color,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 2),
         Text(
           label,
           style: AppTheme.bodySmall.copyWith(
             color: Colors.grey[600],
+            fontSize: 11,
           ),
           textAlign: TextAlign.center,
         ),
