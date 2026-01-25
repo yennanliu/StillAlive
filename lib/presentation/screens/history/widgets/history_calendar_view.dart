@@ -25,16 +25,20 @@ class _HistoryCalendarViewState extends State<HistoryCalendarView> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
-  CheckinRecord? _getRecordForDay(DateTime day) {
+  CheckinRecord _getRecordForDay(DateTime day) {
     final normalized = CheckinRecord.normalizeDate(day);
-    return widget.records.firstWhere(
-      (record) => record.date.isAtSameMomentAs(normalized),
-      orElse: () => CheckinRecord(
+    try {
+      return widget.records.firstWhere(
+        (record) => record.date.isAtSameMomentAs(normalized),
+      );
+    } catch (e) {
+      // Return a default pending record if not found
+      return CheckinRecord(
         id: '',
         date: normalized,
         status: CheckinStatus.pending,
-      ),
-    );
+      );
+    }
   }
 
   Color _getColorForDay(DateTime day) {

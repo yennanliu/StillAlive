@@ -14,8 +14,8 @@ class TimeWindowSetting extends StatelessWidget {
   });
 
   Future<void> _editTimeWindow(BuildContext context) async {
-    TimeOfDay? newStart = settings.checkinWindowStart;
-    TimeOfDay? newEnd = settings.checkinWindowEnd;
+    TimeOfDay newStart = settings.checkinWindowStart;
+    TimeOfDay newEnd = settings.checkinWindowEnd;
 
     await showDialog(
       context: context,
@@ -23,8 +23,8 @@ class TimeWindowSetting extends StatelessWidget {
         title: const Text('Edit Check-in Window'),
         content: StatefulBuilder(
           builder: (context, setState) {
-            final duration = (newEnd!.hour * 60 + newEnd.minute) -
-                (newStart!.hour * 60 + newStart.minute);
+            final duration = (newEnd.hour * 60 + newEnd.minute) -
+                (newStart.hour * 60 + newStart.minute);
 
             return Column(
               mainAxisSize: MainAxisSize.min,
@@ -100,8 +100,8 @@ class TimeWindowSetting extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              final duration = (newEnd!.hour * 60 + newEnd.minute) -
-                  (newStart!.hour * 60 + newStart.minute);
+              final duration = (newEnd.hour * 60 + newEnd.minute) -
+                  (newStart.hour * 60 + newStart.minute);
               if (duration >= 30 && duration <= 240) {
                 onUpdate(newStart, newEnd);
                 Navigator.of(context).pop();
