@@ -6,10 +6,7 @@ import 'history_list_item.dart';
 class HistoryListView extends StatelessWidget {
   final List<CheckinRecord> records;
 
-  const HistoryListView({
-    super.key,
-    required this.records,
-  });
+  const HistoryListView({super.key, required this.records});
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +15,20 @@ class HistoryListView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.history,
-              size: 80,
-              color: Colors.grey[400],
-            ),
+            Icon(Icons.history, size: 80, color: Colors.grey[400]),
             const SizedBox(height: 16),
             Text(
               'No check-in history',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.grey[600],
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(color: Colors.grey[600]),
             ),
             const SizedBox(height: 8),
             Text(
               'Your check-in records will appear here',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey[500],
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: Colors.grey[500]),
             ),
           ],
         ),

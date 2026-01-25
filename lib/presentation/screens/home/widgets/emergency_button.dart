@@ -68,7 +68,9 @@ class EmergencyButton extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: ElevatedButton.icon(
-        onPressed: isDisabled ? () => _handlePress(context) : () => _handlePress(context),
+        onPressed: isDisabled
+            ? () => _handlePress(context)
+            : () => _handlePress(context),
         style: ElevatedButton.styleFrom(
           backgroundColor: isDisabled ? Colors.grey : Colors.red,
           foregroundColor: Colors.white,

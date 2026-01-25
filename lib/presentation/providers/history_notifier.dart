@@ -4,10 +4,7 @@ import '../../data/models/checkin_status.dart';
 import '../../data/repositories/checkin_repository.dart';
 
 /// View mode for history screen
-enum HistoryViewMode {
-  calendar,
-  list,
-}
+enum HistoryViewMode { calendar, list }
 
 /// State class for history screen
 class HistoryState {
@@ -62,10 +59,10 @@ class HistoryState {
 class HistoryNotifier extends StateNotifier<HistoryState> {
   final CheckinRepository _repository;
 
-  HistoryNotifier({
-    required CheckinRepository repository,
-  })  : _repository = repository,
-        super(HistoryState(
+  HistoryNotifier({required CheckinRepository repository})
+    : _repository = repository,
+      super(
+        HistoryState(
           records: [],
           viewMode: HistoryViewMode.calendar,
           rangeStart: DateTime.now().subtract(const Duration(days: 30)),
@@ -75,7 +72,8 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
           longestStreak: 0,
           totalCompleted: 0,
           totalMissed: 0,
-        )) {
+        ),
+      ) {
     _updateState();
   }
 
@@ -152,11 +150,8 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
       final date = today.subtract(Duration(days: i));
       final record = sortedRecords.firstWhere(
         (r) => r.date.isAtSameMomentAs(date),
-        orElse: () => CheckinRecord(
-          id: '',
-          date: date,
-          status: CheckinStatus.missed,
-        ),
+        orElse: () =>
+            CheckinRecord(id: '', date: date, status: CheckinStatus.missed),
       );
 
       if (record.status == CheckinStatus.completed ||
@@ -219,10 +214,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
 
   /// Update date range
   void updateDateRange(DateTime start, DateTime end) {
-    state = state.copyWith(
-      rangeStart: start,
-      rangeEnd: end,
-    );
+    state = state.copyWith(rangeStart: start, rangeEnd: end);
     _updateState();
   }
 

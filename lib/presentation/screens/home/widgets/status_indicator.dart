@@ -6,10 +6,7 @@ import '../../../../data/models/checkin_status.dart';
 class StatusIndicator extends StatelessWidget {
   final CheckinStatus status;
 
-  const StatusIndicator({
-    super.key,
-    required this.status,
-  });
+  const StatusIndicator({super.key, required this.status});
 
   Color _getColor() {
     switch (status) {

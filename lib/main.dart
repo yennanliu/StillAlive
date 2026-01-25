@@ -13,11 +13,7 @@ void main() async {
   final storageService = StorageService();
   await storageService.init();
 
-  runApp(
-    const ProviderScope(
-      child: StillAliveApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: StillAliveApp()));
 }
 
 class StillAliveApp extends StatelessWidget {

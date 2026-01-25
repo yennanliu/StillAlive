@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 /// App theme configuration
 class AppTheme {
   // Color scheme
-  static const Color primaryColor = Color(0xFF2E7D32); // Green - representing life/safety
-  static const Color secondaryColor = Color(0xFF1976D2); // Blue - trust and calm
+  static const Color primaryColor = Color(
+    0xFF2E7D32,
+  ); // Green - representing life/safety
+  static const Color secondaryColor = Color(
+    0xFF1976D2,
+  ); // Blue - trust and calm
   static const Color errorColor = Color(0xFFD32F2F); // Red - missed check-ins
   static const Color warningColor = Color(0xFFF57C00); // Orange - warnings
   static const Color successColor = Color(0xFF388E3C); // Green - completed
@@ -50,27 +54,20 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
         elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       appBarTheme: const AppBarTheme(
         centerTitle: true,
@@ -102,7 +99,10 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: errorColor, width: 1),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith((states) {

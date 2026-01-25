@@ -7,7 +7,7 @@ class CheckinRepository {
   final StorageService _storage;
 
   CheckinRepository({StorageService? storage})
-      : _storage = storage ?? StorageService();
+    : _storage = storage ?? StorageService();
 
   /// Get check-in record for a specific date
   CheckinRecord? getRecordByDate(DateTime date) {
@@ -70,10 +70,7 @@ class CheckinRepository {
   }
 
   /// Mark check-in as missed and log alert
-  Future<void> markAsMissed(
-    DateTime date,
-    List<String> contactIds,
-  ) async {
+  Future<void> markAsMissed(DateTime date, List<String> contactIds) async {
     final record = getRecordByDate(date);
     if (record != null) {
       record.status = CheckinStatus.missed;
@@ -106,25 +103,27 @@ class CheckinRepository {
     final normalizedEnd = CheckinRecord.normalizeDate(endDate);
 
     return box.values
-        .where((record) =>
-            !record.date.isBefore(normalizedStart) &&
-            !record.date.isAfter(normalizedEnd))
+        .where(
+          (record) =>
+              !record.date.isBefore(normalizedStart) &&
+              !record.date.isAfter(normalizedEnd),
+        )
         .toList()
       ..sort((a, b) => b.date.compareTo(a.date));
   }
 
   /// Get count of completed check-ins
   int getCompletedCount({int days = 30}) {
-    return getHistory(days: days)
-        .where((record) => record.status == CheckinStatus.completed)
-        .length;
+    return getHistory(
+      days: days,
+    ).where((record) => record.status == CheckinStatus.completed).length;
   }
 
   /// Get count of missed check-ins
   int getMissedCount({int days = 30}) {
-    return getHistory(days: days)
-        .where((record) => record.status == CheckinStatus.missed)
-        .length;
+    return getHistory(
+      days: days,
+    ).where((record) => record.status == CheckinStatus.missed).length;
   }
 
   /// Get check-in completion rate (0.0 to 1.0)

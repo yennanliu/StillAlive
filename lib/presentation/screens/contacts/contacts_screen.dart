@@ -49,8 +49,7 @@ class ContactsScreen extends ConsumerWidget {
       ),
       body: Column(
         children: [
-          if (!hasMinimum)
-            MinimumContactsWarning(currentCount: contactCount),
+          if (!hasMinimum) MinimumContactsWarning(currentCount: contactCount),
           if (contactCount > 0)
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -66,8 +65,7 @@ class ContactsScreen extends ConsumerWidget {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const Spacer(),
-                  if (hasMinimum)
-                    Icon(Icons.check_circle, color: Colors.green),
+                  if (hasMinimum) Icon(Icons.check_circle, color: Colors.green),
                 ],
               ),
             ),
@@ -85,16 +83,14 @@ class ContactsScreen extends ConsumerWidget {
                         const SizedBox(height: 16),
                         Text(
                           'No emergency contacts',
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                                color: Colors.grey[600],
-                              ),
+                          style: Theme.of(context).textTheme.titleLarge
+                              ?.copyWith(color: Colors.grey[600]),
                         ),
                         const SizedBox(height: 8),
                         Text(
                           'Add at least 2 contacts to enable alerts',
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Colors.grey[500],
-                              ),
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(color: Colors.grey[500]),
                         ),
                         const SizedBox(height: 24),
                         ElevatedButton.icon(
@@ -120,9 +116,8 @@ class ContactsScreen extends ConsumerWidget {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => EditContactScreen(
-                                contact: contact,
-                              ),
+                              builder: (context) =>
+                                  EditContactScreen(contact: contact),
                             ),
                           );
                         },
@@ -139,7 +134,8 @@ class ContactsScreen extends ConsumerWidget {
                                 ),
                                 actions: [
                                   TextButton(
-                                    onPressed: () => Navigator.of(context).pop(),
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(),
                                     child: const Text('OK'),
                                   ),
                                 ],

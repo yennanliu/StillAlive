@@ -50,8 +50,8 @@ class StatsSummary extends StatelessWidget {
                     color: completionRate >= 0.8
                         ? Colors.green
                         : completionRate >= 0.5
-                            ? Colors.orange
-                            : Colors.red,
+                        ? Colors.orange
+                        : Colors.red,
                   ),
                 ),
                 Expanded(

@@ -109,9 +109,7 @@ class _TimeWindowPageState extends State<TimeWindowPage> {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: _errorMessage == null
-                  ? Colors.blue[50]
-                  : Colors.red[50],
+              color: _errorMessage == null ? Colors.blue[50] : Colors.red[50],
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: _errorMessage == null ? Colors.blue : Colors.red,
@@ -184,9 +182,7 @@ class _TimeWindowPageState extends State<TimeWindowPage> {
                   '• Choose a time when you\'re usually active\n'
                   '• Morning windows (8-10 AM) work well for most people\n'
                   '• A 2-hour window gives you flexibility',
-                  style: AppTheme.bodySmall.copyWith(
-                    color: Colors.grey[700],
-                  ),
+                  style: AppTheme.bodySmall.copyWith(color: Colors.grey[700]),
                 ),
               ],
             ),

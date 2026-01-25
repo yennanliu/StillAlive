@@ -60,10 +60,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   Future<void> _completeOnboarding() async {
     // Save time window settings
-    await ref.read(settingsNotifierProvider.notifier).updateCheckinWindow(
-          start: _startTime,
-          end: _endTime,
-        );
+    await ref
+        .read(settingsNotifierProvider.notifier)
+        .updateCheckinWindow(start: _startTime, end: _endTime);
 
     // Mark onboarding as completed
     await ref.read(settingsNotifierProvider.notifier).completeOnboarding();
@@ -74,9 +73,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   void _sendTestSMS() {
     // TODO: Implement test SMS in Phase 3
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Test SMS will be implemented in Phase 3'),
-      ),
+      const SnackBar(content: Text('Test SMS will be implemented in Phase 3')),
     );
   }
 
@@ -93,10 +90,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               centerTitle: true,
               actions: [
                 if (_currentPage < _totalPages - 1)
-                  TextButton(
-                    onPressed: _nextPage,
-                    child: const Text('Skip'),
-                  ),
+                  TextButton(onPressed: _nextPage, child: const Text('Skip')),
               ],
             )
           : null,

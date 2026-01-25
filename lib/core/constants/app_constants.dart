@@ -17,8 +17,10 @@ class AppConstants {
   static const int reminderBeforeDeadlineMinutes = 15;
 
   // Alert Delays (in seconds)
-  static const int smsDelaySeconds = 2; // Delay between SMS to different contacts
-  static const int callDelaySeconds = 5; // Delay between calls to different contacts
+  static const int smsDelaySeconds =
+      2; // Delay between SMS to different contacts
+  static const int callDelaySeconds =
+      5; // Delay between calls to different contacts
 
   // Retry Settings
   static const int maxAlertRetries = 3;

@@ -48,12 +48,14 @@ class CheckinNotifier extends StateNotifier<CheckinState> {
   CheckinNotifier({
     required CheckinRepository checkinRepository,
     required SettingsRepository settingsRepository,
-  })  : _checkinRepository = checkinRepository,
-        _settingsRepository = settingsRepository,
-        super(CheckinState(
-          currentStatus: CheckinStatus.pending,
-          settings: settingsRepository.getSettings(),
-        )) {
+  }) : _checkinRepository = checkinRepository,
+       _settingsRepository = settingsRepository,
+       super(
+         CheckinState(
+           currentStatus: CheckinStatus.pending,
+           settings: settingsRepository.getSettings(),
+         ),
+       ) {
     _initialize();
   }
 
@@ -134,8 +136,7 @@ class CheckinNotifier extends StateNotifier<CheckinState> {
     }
 
     final currentMinutes = now.hour * 60 + now.minute;
-    final remainingMinutes =
-        settings.checkinWindowEndMinutes - currentMinutes;
+    final remainingMinutes = settings.checkinWindowEndMinutes - currentMinutes;
 
     return Duration(minutes: remainingMinutes);
   }
@@ -152,9 +153,9 @@ class CheckinNotifier extends StateNotifier<CheckinState> {
 
     // Next window is tomorrow at the start time
     final tomorrow = DateTime(now.year, now.month, now.day + 1);
-    final nextStart = tomorrow.add(Duration(
-      minutes: settings.checkinWindowStartMinutes,
-    ));
+    final nextStart = tomorrow.add(
+      Duration(minutes: settings.checkinWindowStartMinutes),
+    );
 
     return nextStart;
   }

@@ -26,7 +26,10 @@ class TimePickerWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(width: 8),
-            Icon(Icons.access_time, color: Theme.of(context).colorScheme.primary),
+            Icon(
+              Icons.access_time,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ],
         ),
         onTap: () async {

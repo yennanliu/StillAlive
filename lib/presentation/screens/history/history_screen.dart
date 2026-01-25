@@ -35,18 +35,9 @@ class HistoryScreen extends ConsumerWidget {
               }
             },
             itemBuilder: (context) => [
-              const PopupMenuItem(
-                value: 'last30',
-                child: Text('Last 30 Days'),
-              ),
-              const PopupMenuItem(
-                value: 'last90',
-                child: Text('Last 90 Days'),
-              ),
-              const PopupMenuItem(
-                value: 'month',
-                child: Text('Current Month'),
-              ),
+              const PopupMenuItem(value: 'last30', child: Text('Last 30 Days')),
+              const PopupMenuItem(value: 'last90', child: Text('Last 90 Days')),
+              const PopupMenuItem(value: 'month', child: Text('Current Month')),
             ],
           ),
         ],
@@ -95,9 +86,7 @@ class HistoryScreen extends ConsumerWidget {
                     rangeStart: historyState.rangeStart,
                     rangeEnd: historyState.rangeEnd,
                   )
-                : HistoryListView(
-                    records: historyState.records,
-                  ),
+                : HistoryListView(records: historyState.records),
           ),
         ],
       ),

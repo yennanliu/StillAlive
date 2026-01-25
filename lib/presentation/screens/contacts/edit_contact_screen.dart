@@ -8,10 +8,7 @@ import '../onboarding/widgets/contact_form.dart';
 class EditContactScreen extends ConsumerWidget {
   final EmergencyContact contact;
 
-  const EditContactScreen({
-    super.key,
-    required this.contact,
-  });
+  const EditContactScreen({super.key, required this.contact});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,9 +33,7 @@ class EditContactScreen extends ConsumerWidget {
                     ),
                     TextButton(
                       onPressed: () => Navigator.of(context).pop(true),
-                      style: TextButton.styleFrom(
-                        foregroundColor: Colors.red,
-                      ),
+                      style: TextButton.styleFrom(foregroundColor: Colors.red),
                       child: const Text('Delete'),
                     ),
                   ],

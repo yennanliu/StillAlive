@@ -9,10 +9,7 @@ import '../widgets/contact_form.dart';
 class ContactsPage extends ConsumerStatefulWidget {
   final VoidCallback onContinue;
 
-  const ContactsPage({
-    super.key,
-    required this.onContinue,
-  });
+  const ContactsPage({super.key, required this.onContinue});
 
   @override
   ConsumerState<ContactsPage> createState() => _ContactsPageState();
@@ -47,9 +44,9 @@ class _ContactsPageState extends ConsumerState<ContactsPage> {
     await ref.read(contactsNotifierProvider.notifier).deleteContact(contact.id);
 
     if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${contact.name} removed')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('${contact.name} removed')));
     }
   }
 

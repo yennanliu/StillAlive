@@ -23,7 +23,8 @@ class TimeWindowSetting extends StatelessWidget {
         title: const Text('Edit Check-in Window'),
         content: StatefulBuilder(
           builder: (context, setState) {
-            final duration = (newEnd.hour * 60 + newEnd.minute) -
+            final duration =
+                (newEnd.hour * 60 + newEnd.minute) -
                 (newStart.hour * 60 + newStart.minute);
 
             return Column(
@@ -100,7 +101,8 @@ class TimeWindowSetting extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              final duration = (newEnd.hour * 60 + newEnd.minute) -
+              final duration =
+                  (newEnd.hour * 60 + newEnd.minute) -
                   (newStart.hour * 60 + newStart.minute);
               if (duration >= 30 && duration <= 240) {
                 onUpdate(newStart, newEnd);
@@ -125,9 +127,7 @@ class TimeWindowSetting extends StatelessWidget {
         title: const Text('Check-in Window'),
         subtitle: Text(
           '${start.format(context)} - ${end.format(context)}',
-          style: AppTheme.bodyLarge.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: AppTheme.bodyLarge.copyWith(fontWeight: FontWeight.bold),
         ),
         trailing: const Icon(Icons.edit),
         onTap: () => _editTimeWindow(context),

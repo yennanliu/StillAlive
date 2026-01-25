@@ -44,14 +44,17 @@ class TodaySummaryCard extends StatelessWidget {
             _InfoRow(
               icon: Icons.access_time,
               label: 'Check-in Window',
-              value: '${windowStart.format(context)} - ${windowEnd.format(context)}',
+              value:
+                  '${windowStart.format(context)} - ${windowEnd.format(context)}',
             ),
             if (todayRecord?.checkinTimestamp != null) ...[
               const SizedBox(height: 12),
               _InfoRow(
                 icon: Icons.check_circle,
                 label: 'Checked In At',
-                value: DateFormat('h:mm a').format(todayRecord!.checkinTimestamp!),
+                value: DateFormat(
+                  'h:mm a',
+                ).format(todayRecord!.checkinTimestamp!),
                 valueColor: Colors.green,
               ),
             ],
@@ -90,9 +93,7 @@ class _InfoRow extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           label,
-          style: AppTheme.bodyMedium.copyWith(
-            color: Colors.grey[700],
-          ),
+          style: AppTheme.bodyMedium.copyWith(color: Colors.grey[700]),
         ),
         const Spacer(),
         Text(

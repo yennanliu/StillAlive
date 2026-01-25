@@ -6,7 +6,7 @@ class ContactsRepository {
   final StorageService _storage;
 
   ContactsRepository({StorageService? storage})
-      : _storage = storage ?? StorageService();
+    : _storage = storage ?? StorageService();
 
   /// Get all emergency contacts
   List<EmergencyContact> getAllContacts() {

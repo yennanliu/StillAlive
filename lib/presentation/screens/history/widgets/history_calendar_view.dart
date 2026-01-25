@@ -99,8 +99,9 @@ class _HistoryCalendarViewState extends State<HistoryCalendarView> {
               _DetailRow(
                 icon: Icons.check_circle,
                 label: 'Checked In',
-                value: TimeOfDay.fromDateTime(record.checkinTimestamp!)
-                    .format(context),
+                value: TimeOfDay.fromDateTime(
+                  record.checkinTimestamp!,
+                ).format(context),
                 valueColor: Colors.green,
               ),
             ],
@@ -189,7 +190,8 @@ class _HistoryCalendarViewState extends State<HistoryCalendarView> {
                     child: Text(
                       '${day.day}',
                       style: TextStyle(
-                        color: _getColorForDay(day) == Colors.transparent ||
+                        color:
+                            _getColorForDay(day) == Colors.transparent ||
                                 _getColorForDay(day) == Colors.grey[300]
                             ? Colors.black
                             : Colors.white,
@@ -247,15 +249,9 @@ class _DetailRow extends StatelessWidget {
       children: [
         Icon(icon, size: 20, color: Colors.grey[600]),
         const SizedBox(width: 12),
-        Text(
-          '$label:',
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
+        Text('$label:', style: const TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(width: 8),
-        Text(
-          value,
-          style: TextStyle(color: valueColor),
-        ),
+        Text(value, style: TextStyle(color: valueColor)),
       ],
     );
   }

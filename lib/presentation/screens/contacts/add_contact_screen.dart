@@ -11,9 +11,7 @@ class AddContactScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add Emergency Contact'),
-      ),
+      appBar: AppBar(title: const Text('Add Emergency Contact')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),

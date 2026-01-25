@@ -5,10 +5,7 @@ import '../../../../core/theme/app_theme.dart';
 class CountdownTimer extends StatelessWidget {
   final Duration? timeRemaining;
 
-  const CountdownTimer({
-    super.key,
-    this.timeRemaining,
-  });
+  const CountdownTimer({super.key, this.timeRemaining});
 
   String _formatDuration(Duration duration) {
     final hours = duration.inHours;

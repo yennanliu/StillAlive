@@ -5,10 +5,7 @@ import '../../../../core/theme/app_theme.dart';
 class WelcomePage extends StatelessWidget {
   final VoidCallback onGetStarted;
 
-  const WelcomePage({
-    super.key,
-    required this.onGetStarted,
-  });
+  const WelcomePage({super.key, required this.onGetStarted});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +14,7 @@ class WelcomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.favorite,
-            size: 120,
-            color: AppTheme.primaryColor,
-          ),
+          Icon(Icons.favorite, size: 120, color: AppTheme.primaryColor),
           const SizedBox(height: 32),
           Text(
             'Welcome to\nStill Alive',
@@ -42,9 +35,7 @@ class WelcomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               'Set a daily time window to check in. If you miss it, we\'ll alert your emergency contacts.',
-              style: AppTheme.bodyMedium.copyWith(
-                color: Colors.grey[600],
-              ),
+              style: AppTheme.bodyMedium.copyWith(color: Colors.grey[600]),
               textAlign: TextAlign.center,
             ),
           ),
@@ -104,15 +95,11 @@ class _FeatureItem extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTheme.bodyLarge.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTheme.bodyLarge.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 description,
-                style: AppTheme.bodySmall.copyWith(
-                  color: Colors.grey[600],
-                ),
+                style: AppTheme.bodySmall.copyWith(color: Colors.grey[600]),
               ),
             ],
           ),

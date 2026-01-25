@@ -6,7 +6,7 @@ class SettingsRepository {
   final StorageService _storage;
 
   SettingsRepository({StorageService? storage})
-      : _storage = storage ?? StorageService();
+    : _storage = storage ?? StorageService();
 
   static const String _settingsKey = 'user_settings';
 

@@ -6,10 +6,9 @@ import '../../data/repositories/contacts_repository.dart';
 class ContactsNotifier extends StateNotifier<List<EmergencyContact>> {
   final ContactsRepository _repository;
 
-  ContactsNotifier({
-    required ContactsRepository repository,
-  })  : _repository = repository,
-        super(repository.getAllContacts());
+  ContactsNotifier({required ContactsRepository repository})
+    : _repository = repository,
+      super(repository.getAllContacts());
 
   /// Add a new contact
   Future<void> addContact(EmergencyContact contact) async {

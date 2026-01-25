@@ -6,10 +6,7 @@ import '../../../../core/theme/app_theme.dart';
 class PermissionsPage extends StatefulWidget {
   final VoidCallback onContinue;
 
-  const PermissionsPage({
-    super.key,
-    required this.onContinue,
-  });
+  const PermissionsPage({super.key, required this.onContinue});
 
   @override
   State<PermissionsPage> createState() => _PermissionsPageState();
@@ -243,17 +240,12 @@ class _PermissionItem extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     description,
-                    style: AppTheme.bodySmall.copyWith(
-                      color: Colors.grey[600],
-                    ),
+                    style: AppTheme.bodySmall.copyWith(color: Colors.grey[600]),
                   ),
                 ],
               ),
             ),
-            Icon(
-              isGranted ? Icons.check_circle : Icons.cancel,
-              color: color,
-            ),
+            Icon(isGranted ? Icons.check_circle : Icons.cancel, color: color),
           ],
         ),
       ),

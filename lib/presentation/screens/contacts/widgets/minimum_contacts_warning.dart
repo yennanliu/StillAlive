@@ -5,10 +5,7 @@ import '../../../../core/theme/app_theme.dart';
 class MinimumContactsWarning extends StatelessWidget {
   final int currentCount;
 
-  const MinimumContactsWarning({
-    super.key,
-    required this.currentCount,
-  });
+  const MinimumContactsWarning({super.key, required this.currentCount});
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +35,7 @@ class MinimumContactsWarning extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   'You need at least 2 emergency contacts. Current: $currentCount',
-                  style: AppTheme.bodySmall.copyWith(
-                    color: Colors.red[800],
-                  ),
+                  style: AppTheme.bodySmall.copyWith(color: Colors.red[800]),
                 ),
               ],
             ),

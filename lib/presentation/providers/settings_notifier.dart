@@ -7,10 +7,9 @@ import '../../data/repositories/settings_repository.dart';
 class SettingsNotifier extends StateNotifier<UserSettings> {
   final SettingsRepository _repository;
 
-  SettingsNotifier({
-    required SettingsRepository repository,
-  })  : _repository = repository,
-        super(repository.getSettings());
+  SettingsNotifier({required SettingsRepository repository})
+    : _repository = repository,
+      super(repository.getSettings());
 
   /// Update user name
   Future<void> updateUserName(String name) async {
@@ -19,10 +18,7 @@ class SettingsNotifier extends StateNotifier<UserSettings> {
   }
 
   /// Update check-in window times
-  Future<void> updateCheckinWindow({
-    TimeOfDay? start,
-    TimeOfDay? end,
-  }) async {
+  Future<void> updateCheckinWindow({TimeOfDay? start, TimeOfDay? end}) async {
     final startMinutes = start != null ? start.hour * 60 + start.minute : null;
     final endMinutes = end != null ? end.hour * 60 + end.minute : null;
 
@@ -44,10 +40,7 @@ class SettingsNotifier extends StateNotifier<UserSettings> {
 
   /// Resume check-ins
   Future<void> resumeCheckins() async {
-    await _repository.updateSettings(
-      isPaused: false,
-      pausedSince: null,
-    );
+    await _repository.updateSettings(isPaused: false, pausedSince: null);
     state = _repository.getSettings();
   }
 

@@ -93,11 +93,7 @@ class CheckinButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              _getIcon(),
-              size: 80,
-              color: Colors.white,
-            ),
+            Icon(_getIcon(), size: 80, color: Colors.white),
             const SizedBox(height: 12),
             Text(
               _getLabel(),

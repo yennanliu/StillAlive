@@ -60,10 +60,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $e'),
-            backgroundColor: Colors.red,
-          ),
+          SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
         );
       }
     }
@@ -98,10 +95,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $e'),
-            backgroundColor: Colors.red,
-          ),
+          SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
         );
       }
     }
@@ -123,9 +117,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              shouldPause
-                  ? 'Check-ins paused'
-                  : 'Check-ins resumed',
+              shouldPause ? 'Check-ins paused' : 'Check-ins resumed',
             ),
           ),
         );
@@ -133,10 +125,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $e'),
-            backgroundColor: Colors.red,
-          ),
+          SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
         );
       }
     }
@@ -149,10 +138,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final settings = ref.watch(settingsNotifierProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Still Alive'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Still Alive'), centerTitle: true),
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
@@ -167,9 +153,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 children: [
                   // Status Indicator
                   Center(
-                    child: StatusIndicator(
-                      status: homeState.currentStatus,
-                    ),
+                    child: StatusIndicator(status: homeState.currentStatus),
                   ),
                   const SizedBox(height: 32),
 
@@ -212,7 +196,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   EmergencyButton(
                     onPressed: _handleEmergencyAlert,
                     isDisabled: !homeState.hasMinimumContacts,
-                    disabledReason: 'Add at least 2 emergency contacts to use this feature',
+                    disabledReason:
+                        'Add at least 2 emergency contacts to use this feature',
                   ),
                   const SizedBox(height: 16),
 

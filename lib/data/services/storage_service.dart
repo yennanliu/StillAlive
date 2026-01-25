@@ -59,10 +59,14 @@ class StorageService {
 
   /// Ensure storage is initialized
   void _ensureInitialized() {
+    // Check if box is already open (for testing scenarios)
+    if (Hive.isBoxOpen(settingsBoxName)) {
+      _initialized = true;
+      return;
+    }
+
     if (!_initialized) {
-      throw StateError(
-        'StorageService not initialized. Call init() first.',
-      );
+      throw StateError('StorageService not initialized. Call init() first.');
     }
   }
 

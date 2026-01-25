@@ -59,8 +59,7 @@ Thank you.''';
     required DateTime timestamp,
     String? location,
   }) {
-    final locationText =
-        location != null ? '\nLocation: $location' : '';
+    final locationText = location != null ? '\nLocation: $location' : '';
 
     return '''STILL ALIVE APP - EMERGENCY
 
@@ -74,9 +73,7 @@ This alert was sent from the Still Alive app.''';
   }
 
   /// Build phone call script for manual emergency
-  static String buildManualEmergencyCallScript({
-    required String userName,
-  }) {
+  static String buildManualEmergencyCallScript({required String userName}) {
     return '''This is an EMERGENCY alert from the Still Alive application.
 
 $userName has manually triggered an emergency alert just now.
@@ -89,9 +86,7 @@ Thank you.''';
   }
 
   /// Build test SMS message
-  static String buildTestSMS({
-    required String userName,
-  }) {
+  static String buildTestSMS({required String userName}) {
     return '''STILL ALIVE APP - TEST
 
 This is a test message from $userName's Still Alive app.

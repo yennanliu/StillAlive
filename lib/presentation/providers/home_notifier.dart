@@ -60,16 +60,18 @@ class HomeNotifier extends StateNotifier<HomeScreenState> {
     required CheckinRepository checkinRepository,
     required SettingsRepository settingsRepository,
     required ContactsRepository contactsRepository,
-  })  : _checkinRepository = checkinRepository,
-        _settingsRepository = settingsRepository,
-        _contactsRepository = contactsRepository,
-        super(HomeScreenState(
-          currentStatus: CheckinStatus.pending,
-          isPaused: false,
-          currentStreak: 0,
-          hasMinimumContacts: false,
-          contactCount: 0,
-        )) {
+  }) : _checkinRepository = checkinRepository,
+       _settingsRepository = settingsRepository,
+       _contactsRepository = contactsRepository,
+       super(
+         HomeScreenState(
+           currentStatus: CheckinStatus.pending,
+           isPaused: false,
+           currentStreak: 0,
+           hasMinimumContacts: false,
+           contactCount: 0,
+         ),
+       ) {
     _updateState();
   }
 
@@ -96,10 +98,7 @@ class HomeNotifier extends StateNotifier<HomeScreenState> {
   }
 
   /// Calculate current status
-  CheckinStatus _calculateStatus(
-    CheckinRecord? todayRecord,
-    dynamic settings,
-  ) {
+  CheckinStatus _calculateStatus(CheckinRecord? todayRecord, dynamic settings) {
     if (settings.isPaused) {
       return CheckinStatus.paused;
     }
@@ -134,8 +133,7 @@ class HomeNotifier extends StateNotifier<HomeScreenState> {
 
     final now = DateTime.now();
     final currentMinutes = now.hour * 60 + now.minute;
-    final remainingMinutes =
-        settings.checkinWindowEndMinutes - currentMinutes;
+    final remainingMinutes = settings.checkinWindowEndMinutes - currentMinutes;
 
     return Duration(minutes: remainingMinutes);
   }
@@ -153,11 +151,8 @@ class HomeNotifier extends StateNotifier<HomeScreenState> {
       final date = today.subtract(Duration(days: i));
       final record = history.firstWhere(
         (r) => r.date.isAtSameMomentAs(date),
-        orElse: () => CheckinRecord(
-          id: '',
-          date: date,
-          status: CheckinStatus.missed,
-        ),
+        orElse: () =>
+            CheckinRecord(id: '', date: date, status: CheckinStatus.missed),
       );
 
       // Count completed or paused days as part of streak

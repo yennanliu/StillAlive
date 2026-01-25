@@ -33,11 +33,7 @@ class _CompletionPageState extends State<CompletionPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.check_circle,
-            size: 120,
-            color: Colors.green,
-          ),
+          Icon(Icons.check_circle, size: 120, color: Colors.green),
           const SizedBox(height: 32),
           Text(
             'You\'re All Set!',
@@ -127,9 +123,7 @@ class _CompletionPageState extends State<CompletionPage> {
           const SizedBox(height: 16),
           Text(
             'You can change these settings anytime',
-            style: AppTheme.bodySmall.copyWith(
-              color: Colors.grey[600],
-            ),
+            style: AppTheme.bodySmall.copyWith(color: Colors.grey[600]),
             textAlign: TextAlign.center,
           ),
         ],
@@ -185,9 +179,7 @@ class _InfoItem extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 description,
-                style: AppTheme.bodySmall.copyWith(
-                  color: Colors.grey[700],
-                ),
+                style: AppTheme.bodySmall.copyWith(color: Colors.grey[700]),
               ),
             ],
           ),

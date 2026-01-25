@@ -30,10 +30,12 @@ class _ContactFormState extends State<ContactForm> {
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.contact?.name ?? '');
-    _phoneController =
-        TextEditingController(text: widget.contact?.phoneNumber ?? '');
-    _relationshipController =
-        TextEditingController(text: widget.contact?.relationship ?? '');
+    _phoneController = TextEditingController(
+      text: widget.contact?.phoneNumber ?? '',
+    );
+    _relationshipController = TextEditingController(
+      text: widget.contact?.relationship ?? '',
+    );
   }
 
   @override

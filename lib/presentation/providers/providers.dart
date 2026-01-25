@@ -39,44 +39,44 @@ final checkinRepositoryProvider = Provider<CheckinRepository>((ref) {
 /// Provider for CheckinNotifier
 final checkinNotifierProvider =
     StateNotifierProvider<CheckinNotifier, CheckinState>((ref) {
-  final checkinRepo = ref.watch(checkinRepositoryProvider);
-  final settingsRepo = ref.watch(settingsRepositoryProvider);
-  return CheckinNotifier(
-    checkinRepository: checkinRepo,
-    settingsRepository: settingsRepo,
-  );
-});
+      final checkinRepo = ref.watch(checkinRepositoryProvider);
+      final settingsRepo = ref.watch(settingsRepositoryProvider);
+      return CheckinNotifier(
+        checkinRepository: checkinRepo,
+        settingsRepository: settingsRepo,
+      );
+    });
 
 /// Provider for SettingsNotifier
 final settingsNotifierProvider =
     StateNotifierProvider<SettingsNotifier, UserSettings>((ref) {
-  final settingsRepo = ref.watch(settingsRepositoryProvider);
-  return SettingsNotifier(repository: settingsRepo);
-});
+      final settingsRepo = ref.watch(settingsRepositoryProvider);
+      return SettingsNotifier(repository: settingsRepo);
+    });
 
 /// Provider for ContactsNotifier
 final contactsNotifierProvider =
     StateNotifierProvider<ContactsNotifier, List<EmergencyContact>>((ref) {
-  final contactsRepo = ref.watch(contactsRepositoryProvider);
-  return ContactsNotifier(repository: contactsRepo);
-});
+      final contactsRepo = ref.watch(contactsRepositoryProvider);
+      return ContactsNotifier(repository: contactsRepo);
+    });
 
 /// Provider for HomeNotifier
 final homeNotifierProvider =
     StateNotifierProvider<HomeNotifier, HomeScreenState>((ref) {
-  final checkinRepo = ref.watch(checkinRepositoryProvider);
-  final settingsRepo = ref.watch(settingsRepositoryProvider);
-  final contactsRepo = ref.watch(contactsRepositoryProvider);
-  return HomeNotifier(
-    checkinRepository: checkinRepo,
-    settingsRepository: settingsRepo,
-    contactsRepository: contactsRepo,
-  );
-});
+      final checkinRepo = ref.watch(checkinRepositoryProvider);
+      final settingsRepo = ref.watch(settingsRepositoryProvider);
+      final contactsRepo = ref.watch(contactsRepositoryProvider);
+      return HomeNotifier(
+        checkinRepository: checkinRepo,
+        settingsRepository: settingsRepo,
+        contactsRepository: contactsRepo,
+      );
+    });
 
 /// Provider for HistoryNotifier
 final historyNotifierProvider =
     StateNotifierProvider<HistoryNotifier, HistoryState>((ref) {
-  final checkinRepo = ref.watch(checkinRepositoryProvider);
-  return HistoryNotifier(repository: checkinRepo);
-});
+      final checkinRepo = ref.watch(checkinRepositoryProvider);
+      return HistoryNotifier(repository: checkinRepo);
+    });

@@ -48,7 +48,9 @@ class NotificationSettings extends StatelessWidget {
               title: const Text('30 Minutes Before Window'),
               subtitle: const Text('Reminder that your window opens soon'),
               value: settings.reminderBeforeWindow,
-              onChanged: permissionGranted ? onToggleReminderBeforeWindow : null,
+              onChanged: permissionGranted
+                  ? onToggleReminderBeforeWindow
+                  : null,
               secondary: const Icon(Icons.notification_important),
             ),
             const Divider(height: 1),
@@ -56,7 +58,9 @@ class NotificationSettings extends StatelessWidget {
               title: const Text('At Window Start'),
               subtitle: const Text('Reminder when your window opens'),
               value: settings.reminderAtWindowStart,
-              onChanged: permissionGranted ? onToggleReminderAtWindowStart : null,
+              onChanged: permissionGranted
+                  ? onToggleReminderAtWindowStart
+                  : null,
               secondary: const Icon(Icons.alarm),
             ),
             const Divider(height: 1),
@@ -64,7 +68,9 @@ class NotificationSettings extends StatelessWidget {
               title: const Text('15 Minutes Before Deadline'),
               subtitle: const Text('Urgent reminder before window closes'),
               value: settings.reminderBeforeDeadline,
-              onChanged: permissionGranted ? onToggleReminderBeforeDeadline : null,
+              onChanged: permissionGranted
+                  ? onToggleReminderBeforeDeadline
+                  : null,
               secondary: const Icon(Icons.warning),
             ),
           ],

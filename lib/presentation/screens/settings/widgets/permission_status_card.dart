@@ -41,7 +41,8 @@ class _PermissionStatusCardState extends State<PermissionStatusCard> {
 
   @override
   Widget build(BuildContext context) {
-    final allGranted = _smsStatus.isGranted &&
+    final allGranted =
+        _smsStatus.isGranted &&
         _phoneStatus.isGranted &&
         _notificationStatus.isGranted;
 

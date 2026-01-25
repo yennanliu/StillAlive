@@ -8,10 +8,7 @@ import '../../../../data/models/checkin_status.dart';
 class HistoryListItem extends StatelessWidget {
   final CheckinRecord record;
 
-  const HistoryListItem({
-    super.key,
-    required this.record,
-  });
+  const HistoryListItem({super.key, required this.record});
 
   Color _getColor() {
     switch (record.status) {
@@ -82,9 +79,7 @@ class HistoryListItem extends StatelessWidget {
           children: [
             Text(
               DateFormat('EEE, MMM d, y').format(record.date),
-              style: AppTheme.bodyLarge.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppTheme.bodyLarge.copyWith(fontWeight: FontWeight.bold),
             ),
             if (isToday) ...[
               const SizedBox(width: 8),
